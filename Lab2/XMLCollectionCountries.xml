@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Collection>
+  <Country Name ="USA">
+      <Coin Type ="Circulation"
+            Year ="1965"
+            Value ="25"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Copper+Nickel"
+            Edge ="Reeded"
+            Subject ="USA Presidents">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2011"
+            Value ="1"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Zinc+Copper"
+            Edge ="Plain"
+            Subject ="USA Presidents">
+      </Coin>
+      <Coin Type ="Circulation"
+            Country ="USA"
+            Year ="2012"
+            Value ="1"
+            CurrencyUnit ="Dime"
+            Shape ="Round"
+            Composition ="Copper+Nickel"
+            Edge ="Reeded"
+            Subject ="USA Presidents">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2004"
+            Value ="5"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Copper+Nickel"
+            Edge ="Plain"
+            Subject ="USA Presidents">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2004"
+            Value ="5"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Copper+Nickel"
+            Edge ="Plain"
+            Subject ="USA Presidents">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2012"
+            Value ="5"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Copper+Nickel"
+            Edge ="Plain"
+            Subject ="USA Presidents">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="1969"
+            Value ="1"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Zinc+Copper"
+            Edge ="Plain"
+            Subject ="USA Presidents">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2000"
+            Value ="1"
+            CurrencyUnit ="Dollar"
+            Shape ="Round"
+            Composition ="Manganese+Brass"
+            Edge ="Plain"
+            Subject ="Historical">
+      </Coin>
+
+        <Coin Type ="Commemorative"
+              Year ="2000"
+              Value ="25"
+              CurrencyUnit ="Cent"
+              Shape ="Round"
+              Composition ="Copper+Nickel"
+              Edge ="Reeded"
+              Subject ="USA states">
+          <!--Virginia-->
+        </Coin>
+        <Coin Type ="Commemorative"
+              Year ="2001"
+              Value ="25"
+              CurrencyUnit ="Cent"
+              Shape ="Round"
+              Composition ="Copper+Nickel"
+              Edge ="Reeded"
+              Subject ="USA states">
+          <!--New York-->
+        </Coin>
+        <Coin Type ="Commemorative"
+              Year ="2000"
+              Value ="25"
+              CurrencyUnit ="Cent"
+              Shape ="Round"
+              Composition ="Copper+Nickel"
+              Quality ="Good"
+              Edge ="Reeded"
+              Subject ="USA states">
+          <!--South Carolina-->
+        </Coin>
+
+        <Coin Type ="Commemorative"
+              Year ="2009"
+              Value ="1"
+              CurrencyUnit ="Dollar"
+              Shape ="Round"
+              Composition ="Manganese+Brass"
+              Quality ="Good"
+              Edge ="Lettered"
+              Subject ="USA Presidents">
+          <!--James K. Polk-->
+
+        </Coin>
+      
+  </Country>
+  <Country Name ="Canada">
+      <Coin Type ="Circulation"
+            Year ="2015"
+            Value ="25"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Steel+Copper+Nickel"
+            Edge ="Reeded"
+            Subject ="Queen Elizabeth">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2016"
+            Value ="25"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Steel+Copper+Nickel"
+            Edge ="Reeded"
+            Subject ="Queen Elizabeth">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2002"
+            Value ="25"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Steel+Copper+Nickel"
+            Edge ="Reeded"
+            Subject ="Queen Elizabeth">
+      </Coin>
+      <Coin Year ="1981"
+            Value ="1"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Copper"
+            Edge ="Plain"
+            Type ="Circulation"
+            Subject ="Queen Elizabeth">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2005"
+            Value ="10"
+            CurrencyUnit ="Cent"
+            Shape ="Round"
+            Composition ="Steel+Nickel"
+            Edge ="Reeded"
+            Subject ="Queen Elizabeth">
+      </Coin>
+
+        <Coin Type ="Commemorative"
+              Year ="2013"
+              Value ="25"
+              CurrencyUnit ="Cent"
+              Shape ="Round"
+              Composition ="Steel+Nickel"
+              Edge ="Reeded"
+              Subject ="Animals">
+          <!--LIFE IN THE NORTH-->
+        </Coin>
+        <Coin Type ="Commemorative"
+              Year ="1999"
+              Value ="25"
+              CurrencyUnit ="Cent"
+              Shape ="Round"
+              Composition ="Steel+Nickel"
+              Edge ="Reeded"
+              Subject ="People">
+          <!--March-->
+        </Coin>
+        <Coin Type ="Commemorative"
+              Year ="2017"
+              Value ="1"
+              CurrencyUnit ="Dollar"
+              Shape ="Round"
+              Composition ="Steel+Brass"
+              Edge ="Plain"
+              Subject ="Sport">
+          <!--100th Anniversary of The Toronto Maple Leafs-->
+        </Coin>
+  </Country>
+  <Country Name ="Great Britain">
+      <Coin Type ="Circulation"
+            Year ="2005"
+            Value ="2"
+            CurrencyUnit ="Pence"
+            Shape ="Round"
+            Composition ="Steel+Copper"
+            Edge ="Plain"
+            Subject ="Queen Elizabeth">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="1995"
+            Value ="20"
+            CurrencyUnit ="Pence"
+            Shape ="Heptagon (7-sided)"
+            Composition ="Copper+Nickel"
+            Edge ="Plain"
+            Subject ="Queen Elizabeth">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="1962"
+            Value ="0.5"
+            CurrencyUnit ="Penny"
+            Shape ="Round"
+            Composition ="Bronze"
+            Edge ="Plain"
+            Subject ="Queen Elizabeth">
+      </Coin>
+      <Coin Type ="Circulation"
+            Year ="2016"
+            Value ="1"
+            CurrencyUnit ="Penny"
+            Shape ="Round"
+            Composition ="Steel+Copper"
+            Edge ="Plain"
+            Subject ="Queen Elizabeth">
+      </Coin>
+  </Country>
+  <Country Name ="Islands">
+    <Coin Type ="Circulation"
+          Year ="1999"
+          Value ="1"
+          CurrencyUnit ="Cent"
+          Shape ="Scalloped (8 notches)"
+          Composition ="Aluminium"
+          Edge ="Plain"
+          Subject ="Queen Elizabeth">
+    </Coin>
+  </Country>
+  <Country Name ="Mauritiius">
+      <Coin Type ="Circulation"
+            Year ="1978"
+            Value ="10"
+            CurrencyUnit ="Cent"
+            Shape ="Scalloped (12 notches)"
+            Composition ="Aluminium"
+            Edge ="Plain"
+            Subject ="IDK">
+      </Coin>
+  </Country>
+  <Country Name ="India">
+      <Coin Type ="Circulation"
+            Year ="1995"
+            Value ="5"
+            CurrencyUnit ="Rupee"
+            Shape ="Round"
+            Composition ="Copper+Nickel"
+            Edge ="Security"
+            Subject ="IDK">
+      </Coin>
+  </Country>
+  <Country Name ="Ceilon">
+      <Coin Type ="Circulation"
+            Year ="1978"
+            Value ="5"
+            CurrencyUnit ="Cent"
+            Shape ="Square with rounded corners"
+            Composition ="Aluminium"
+            Edge ="Plain"
+            Subject ="IDK">
+      </Coin>
+  </Country>
+  <Country Name ="Japan">
+      <Coin Type ="Circulation"
+            Year ="1944"
+            Value ="10"
+            CurrencyUnit ="Sen"
+            Shape ="Round with a round hole"
+            Composition ="Tin+Zinc"
+            Edge ="Plain"
+            Subject ="IDK">
+      </Coin>
+  </Country>
+  <Country Name ="Egypt">
+      <Coin Type ="Circulation"
+            Year ="2007"
+            Value ="1"
+            CurrencyUnit ="Pound"
+            Shape ="Round"
+            Composition ="Steel+Brass+Nickel"
+            Edge ="Reeded"
+            Subject ="Sights">
+      </Coin>
+  </Country>
+</Collection>

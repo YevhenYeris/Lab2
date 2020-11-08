@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CoinCollection>
+  <CircullationCoins>
+    <Coin Country ="USA"
+          Year ="1965"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2011"
+          Nominal ="1"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Zinc+Copper"
+          Quality ="Mint"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2012"
+          Nominal ="1"
+          CurrencyUnit ="Dime"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2004"
+          Nominal ="5"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2004"
+          Nominal ="5"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2012"
+          Nominal ="5"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="USA"
+          Year ="1969"
+          Nominal ="1"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Zinc+Copper"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="USA"
+      Year ="2000"
+      Nominal ="1"
+      CurrencyUnit ="Dollar"
+      Shape ="Round"
+      Composition ="Manganese+Brass"
+      Quality ="Good"
+      Edge ="Plain">
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="2015"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Steel+Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="2016"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Steel+Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="2002"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Steel+Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="1981"
+          Nominal ="1"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="2005"
+          Nominal ="10"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Steel+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+    </Coin>
+    <Coin Country ="Great Britain"
+          Year ="2005"
+          Nominal ="2"
+          CurrencyUnit ="Pence"
+          Shape ="Round"
+          Composition ="Steel+Copper"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="Great Britain"
+          Year ="1995"
+          Nominal ="20"
+          CurrencyUnit ="Pence"
+          Shape ="Heptagon (7-sided)"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="Great Britain"
+          Year ="1962"
+          Nominal ="0.5"
+          CurrencyUnit ="Penny"
+          Shape ="Round"
+          Composition ="Bronze"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="Great Britain"
+          Year ="2016"
+          Nominal ="1"
+          CurrencyUnit ="Penny"
+          Shape ="Round"
+          Composition ="Steel+Copper"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="East Caribbean States"
+          Year ="1999"
+          Nominal ="1"
+          CurrencyUnit ="Cent"
+          Shape ="Scalloped (8 notches)"
+          Composition ="Aluminium"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="Mauritius"
+          Year ="1978"
+          Nominal ="10"
+          CurrencyUnit ="Cent"
+          Shape ="Scalloped (12 notches)"
+          Composition ="Aluminium"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="India"
+          Year ="1995"
+          Nominal ="5"
+          CurrencyUnit ="Rupee"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Security">
+    </Coin>
+    <Coin Country ="Ceilon"
+          Year ="1978"
+          Nominal ="5"
+          CurrencyUnit ="Cent"
+          Shape ="Square with rounded corners"
+          Composition ="Aluminium"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+    <Coin Country ="Japan"
+          Year ="1944"
+          Nominal ="10"
+          CurrencyUnit ="Sen"
+          Shape ="Round with a round hole"
+          Composition ="Tin+Zinc"
+          Quality ="Good"
+          Edge ="Plain">
+    </Coin>
+  </CircullationCoins>
+  <ThematicCoins>
+    <Coin Country ="USA"
+          Year ="2000"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+      <Theme Series ="50 State quarters"
+             Theme ="Virginia">
+        
+      </Theme>
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2001"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+      <Theme Series ="50 State quarters"
+             Theme ="New York">
+      </Theme>
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2000"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+      <Theme Series ="50 State quarters"
+             Theme ="South Carolina">
+      </Theme>
+    </Coin>
+    <Coin Country ="USA"
+          Year ="2009"
+          Nominal ="1"
+          CurrencyUnit ="Dollar"
+          Shape ="Round"
+          Composition ="Manganese+Brass"
+          Quality ="Good"
+          Edge ="Lettered">
+      <Theme Series ="Presidential $1 Coin Program"
+             Theme ="James K. Polk">
+      </Theme>
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="2013"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Steel+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+      <Theme Series ="Thematic coins of Canada"
+             Theme ="LIFE IN THE NORTH">
+      </Theme>
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="1999"
+          Nominal ="25"
+          CurrencyUnit ="Cent"
+          Shape ="Round"
+          Composition ="Steel+Nickel"
+          Quality ="Good"
+          Edge ="Reeded"
+          Theme ="March">
+      <Theme Series ="Thematic coins of Canada"
+       Theme ="March">
+      </Theme>
+    </Coin>
+    <Coin Country ="Canada"
+          Year ="2017"
+          Nominal ="1"
+          CurrencyUnit ="Dollar"
+          Shape ="Round"
+          Composition ="Steel+Brass"
+          Quality ="Good"
+          Edge ="Plain">
+      <Theme Series ="Thematic coins of Canada"
+             Theme ="100th Anniversary of The Toronto Maple Leafs">
+      </Theme>
+    </Coin>
+    <Coin Country ="Egypt"
+          Year ="2007"
+          Nominal ="1"
+          CurrencyUnit ="Pound"
+          Shape ="Round"
+          Composition ="Steel+Brass+Nickel"
+          Quality ="Good"
+          Edge ="Reeded">
+      <Theme Series ="Thematic coins of Egypt"
+             Theme ="Tutankhamun's mask">
+      </Theme>
+    </Coin>
+  </ThematicCoins>
+  <TokenCons>
+    <Coin Country ="Japan"
+          Shape ="Round"
+          Composition ="Steel"
+          Quality ="Good"
+          Edge ="Plain">
+      <Theme Series ="Advertising"
+             Theme ="PSE - Politics Safe Electron">
+      </Theme>
+    </Coin>
+    <Coin Country ="United Kingdom"
+          Shape ="Round"
+          Composition ="Copper+Nickel"
+          Quality ="Good"
+          Edge ="Plain">
+      <Theme Series ="Automatic"
+             Theme ="UK automatic coin">
+      </Theme>
+    </Coin>
+    <Coin Country ="Ukraine"
+          Shape ="Round"
+          Composition ="Brass"
+          Quality ="Good"
+          Edge ="Plain">
+      <Theme Series ="Automatic"
+             Theme ="Igroland">
+      </Theme>
+      </Coin>
+      <Coin Country ="Ukraine"
+            Shape ="Round"
+            Composition ="Plastic"
+            Quality ="Good"
+            Edge ="Plain">
+        <Theme Series ="Transit Tokens"
+               Theme ="Metro token - Kyiv">
+        </Theme>
+      </Coin>
+    <Coin Country ="USSR"
+          Shape ="Round"
+          Composition ="Plastic"
+          Quality ="Good"
+          Edge ="Plain">
+      <Theme Series ="Telephone Tokens"
+             Theme ="Taxophone MGTS">
+      </Theme>
+    </Coin>
+  </TokenCons>
+  <ReplicaCoins>
+    
+  </ReplicaCoins>
+</CoinCollection>
