@@ -6,15 +6,8 @@ using System.IO;
 
 namespace Lab2
 {
-    abstract class XmlSearchStrategy
+    interface IXmlSearchStrategy
     {
-        protected const string DataDirectory = "D:/Shkola/2ndCourse/OOP/DZ/Lab2/Lab2/";
-
         public abstract List<Coin> FindCoins(Coin sample);
-
-        protected string getFilePath(string fileName)
-        {
-            return Path.Combine(DataDirectory, fileName);
-        }
     }
 }

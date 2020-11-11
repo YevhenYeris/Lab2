@@ -6,9 +6,9 @@ using System.Xml;
 
 namespace Lab2
 {
-    class SAX : XmlSearchStrategy
+    class SAX : IXmlSearchStrategy
     {
-        public override List<Coin> FindCoins(Coin coin)
+        public List<Coin> FindCoins(Coin coin)
         {
             List<Coin> found = new List<Coin>();
 
@@ -21,7 +21,7 @@ namespace Lab2
         {
             List<Coin> found = new List<Coin>();
 
-            var xmlReader = new XmlTextReader(getFilePath("XMLCollectionCountries.xml"));
+            var xmlReader = new XmlTextReader(DataSystemProg.XmlFile);
 
             Coin newCoin = new Coin();
             string country = "";
@@ -34,20 +34,29 @@ namespace Lab2
                 {
                     case XmlNodeType.Element:
                         if (xmlReader.Name == "Country")
-                            country = xmlReader.GetAttribute("Name");
+                            country = xmlReader.GetAttribute("ID");
                         if (xmlReader.Name == "Coin")
                         {
                             newCoin.Country = country;
+                            newCoin.Attributes["Country"] = country;
                             newCoin.Type = xmlReader.GetAttribute("Type");
+                            newCoin.Attributes["Type"] = xmlReader.GetAttribute("Type");
                             newCoin.Year = xmlReader.GetAttribute("Year");
+                            newCoin.Attributes["Year"] = xmlReader.GetAttribute("Year");
                             newCoin.Composition = xmlReader.GetAttribute("Composition");
+                            newCoin.Attributes["Composition"] = xmlReader.GetAttribute("Composition");
                             newCoin.Edge = xmlReader.GetAttribute("Edge");
+                            newCoin.Attributes["Edge"] = xmlReader.GetAttribute("Edge");
                             newCoin.CurrencyUnit = xmlReader.GetAttribute("CurrencyUnit");
+                            newCoin.Attributes["CurrencyUnit"] = xmlReader.GetAttribute("CurrencyUnit");
                             newCoin.Shape = xmlReader.GetAttribute("Shape");
+                            newCoin.Attributes["Shape"] = xmlReader.GetAttribute("Shape");
                             newCoin.Value = xmlReader.GetAttribute("Value");
+                            newCoin.Attributes["Value"] = xmlReader.GetAttribute("Value");
                             newCoin.Subject = xmlReader.GetAttribute("Subject");
+                            newCoin.Attributes["Subject"] = xmlReader.GetAttribute("Subject");
 
-                            if (compare(coin, newCoin))
+                            if (coin == newCoin /*compare(coin, newCoin)*/)
                                 found.Add(newCoin);
                         }
                         break;

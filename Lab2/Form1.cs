@@ -9,12 +9,11 @@ using System.Xml;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Xsl;
+using System.Collections;
+using System.Reflection.Metadata.Ecma335;
 
 /*TODOs
- * 
- * Зберігати рещультати пошуку в новому xml-файлі
- * 
+ *
  * Оновлювати ComboBoxes
  * 
  * Додати атрибут-зображення
@@ -29,68 +28,31 @@ using System.Xml.Xsl;
 
 namespace Lab2
 {
-    struct Filter
-    {
-        public bool Selected { get; set; }
-        public string Title { get; set; }
-        //public List<string> Param { get; set; }
-
-        //public ComboBox CmB { get; set; }
-
-        /*public Filter(bool selected, string title, List<string> param)
-        {
-            Selected = selected;
-            Title = title;
-            Param = param;
-        }*/
-
-        public Filter(bool selected, string title)
-        {
-            Selected = selected;
-            Title = title;
-        }
-    }
-
     public partial class Form1 : Form
     {
-        Coin filter = new Coin();
+        DataSystemProg prog = new DataSystemProg();
 
         List<ComboBox> comboBoxes = new List<ComboBox>();
 
         public Form1()
         {
             InitializeComponent();
-            comboBoxes = new List<ComboBox>(new ComboBox[] { comboBoxCountry, comboBoxType, comboBoxComposition,
-            comboBoxCurrency, comboBoxTheme, comboBoxValue, comboBoxEdge, comboBoxShape, comboBoxYear});
+            /*comboBoxes = new List<ComboBox>(new ComboBox[] { comboBoxCountry, comboBoxType, comboBoxComposition,
+            comboBoxCurrency, comboBoxTheme, comboBoxValue, comboBoxEdge, comboBoxShape, comboBoxYear});*/
 
             setFilter();
         }
 
+        // Set items in ComboBoxes
         private void setFilter()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load("D:/Shkola/2ndCourse/OOP/DZ/Lab2/Lab2/XMLCollectionCountries.xml");
-
-            XmlElement xRoot = doc.DocumentElement;
-            XmlNodeList nodes = xRoot.SelectNodes("Country");
-
-            foreach (XmlNode node in nodes)
-            {
-                if (!comboBoxCountry.Items.Contains(node.Attributes.Item(0).Value))
-                    comboBoxCountry.Items.Add(node.Attributes.Item(0).Value);
-
-                XmlNodeList coins = node.SelectNodes("Coin");
-
-                foreach (XmlNode coin in coins)
-                {
-                    addItem(coin);
-                }
-            }
+            dataGrid.Rows.AddRange(prog.makeRows());
         }
 
+        // Add item to ComboBox
         private void addItem(XmlNode coin)
         {
-            if (coin.Attributes.GetNamedItem("CurrencyUnit") != null && !comboBoxCurrency.Items.Contains(coin.Attributes.GetNamedItem("CurrencyUnit").Value))
+            /*if (coin.Attributes.GetNamedItem("CurrencyUnit") != null && !comboBoxCurrency.Items.Contains(coin.Attributes.GetNamedItem("CurrencyUnit").Value))
                 comboBoxCurrency.Items.Add(coin.Attributes.GetNamedItem("CurrencyUnit").Value);
 
             if (coin.Attributes.GetNamedItem("Type") != null && !comboBoxType.Items.Contains(coin.Attributes.GetNamedItem("Type").Value))
@@ -112,9 +74,10 @@ namespace Lab2
                 comboBoxEdge.Items.Add(coin.Attributes.GetNamedItem("Edge").Value);
 
             if (coin.Attributes.GetNamedItem("Subject") != null && !comboBoxTheme.Items.Contains(coin.Attributes.GetNamedItem("Subject").Value))
-                comboBoxTheme.Items.Add(coin.Attributes.GetNamedItem("Subject").Value);
+                comboBoxTheme.Items.Add(coin.Attributes.GetNamedItem("Subject").Value);*/
         }
 
+        // Set ComboBoxes default TODO 
         private void resetFilter()
         {
             richTextBox1.Text = "";
@@ -123,48 +86,102 @@ namespace Lab2
                 comboBoxes[i].SelectedItem = null;
                 comboBoxes[i].Text = "Усі";
             }
+
+            foreach (DataGridViewRow row in dataGrid.Rows)
+            {
+                DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
+                cell.Value = false;
+
+                DataGridViewComboBoxCell cellCombo = row.Cells[1] as DataGridViewComboBoxCell;
+                cellCombo.Value = "";
+            }
         }
 
-        /*private bool checkFilter(string parameter, XmlNode node)
+        private void buttonSearch_Click(object sender, EventArgs e)
         {
-            string expected = null;
-            string actual = node.Attributes.GetNamedItem(parameter).Value;
-            bool result = true;
-            /*switch (parameter)
+            List<Coin> found = new List<Coin>();
+
+            setFilterCoin();
+
+            if (radioButtonDOM.Checked)
             {
-                case "Country": expected = filter.Country;
-                    break;
-                case "Type": expected = filter.Type;
-                    break;
-                case "Year": expected = filter.Year;
-                    break;
-                case "Value": expected = filter.Value;
-                    break;
-                case "CurrencyUnit": expected = filter.CurrencyUnit;
-                    break;
-                case "Shape": expected = filter.Shape;
-                    break;
-                case "Composition": expected = filter.Composition;
-                    break;
-                case "Edge": expected = filter.Edge;
-                    break;
-                case "Subject": expected = filter.Subject;
-                    break;
+                found = prog.Search(new DOM());
             }
-            result &= filter.Composition == null || filter.Composition == node.Attributes.GetNamedItem("Composition").Value;
-            result &= filter.Type == null || filter.Type == node.Attributes.GetNamedItem("Type").Value;
-            result &= filter.Year == null || filter.Year == node.Attributes.GetNamedItem("Year").Value;
-            result &= filter.CurrencyUnit == null || filter.CurrencyUnit == node.Attributes.GetNamedItem("CurrencyUnit").Value;
-            result &= filter.Edge == null || filter.Edge == node.Attributes.GetNamedItem("Edge").Value;
-            result &= filter.Shape == null || filter.Shape == node.Attributes.GetNamedItem("Shape").Value;
-            result &= filter.Value == null || filter.Value == node.Attributes.GetNamedItem("Value").Value;
-            result &= filter.Subject == null || filter.Subject == node.Attributes.GetNamedItem("Subject").Value;
-            return result;
-        }*/
+            if (radioButtonSAX.Checked)
+            {
+                found = prog.Search(new SAX());
+            }
+            if (radioButtonLINQ.Checked)
+            {
+                found = prog.Search(new LinqToXml());
+            }
+
+            setRichTextBox(found);
+        }
+
+        private void setFilterCoin()
+        {
+            Coin coin = new Coin();
+
+            foreach (DataGridViewRow row in dataGrid.Rows)
+            {
+                DataGridViewComboBoxCell cell = row.Cells[1] as DataGridViewComboBoxCell;
+                DataGridViewCheckBoxCell cellCheck = row.Cells[0] as DataGridViewCheckBoxCell;
+
+                if (Convert.ToBoolean(cellCheck.Value) && cell.Value != null)
+                    coin.Attributes[row.Cells[2].Value.ToString()] = cell.Value.ToString();
+            }
+            prog.Filter = coin;
+        }
+
+        private void setRichTextBox(IEnumerable list)
+        {
+            richTextBox1.Clear();
+
+            foreach (var coin in list)
+            {
+                richTextBox1.Text += coin.ToString() + "\n";
+            }
+        }
+
+        private void comboBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //prog.SetCountry((string)comboBoxCountry.SelectedItem);
+        }
+
+        private void comboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //prog.SetYear((string)comboBoxYear.SelectedItem);
+        }
+
+        private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //prog.SetValue((string)comboBoxValue.SelectedItem);
+        }
+
+        private void comboBoxCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //prog.SetCurrencyUnit((string)comboBoxCurrency.SelectedItem);
+        }
+
+        private void comboBoxEdge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //prog.SetEdge((string)comboBoxEdge.SelectedItem);
+        }
+
+        private void comboBoxComposition_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //prog.SetComposition((string)comboBoxComposition.SelectedItem);
+        }
+
+        private void comboBoxTheme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           // prog.SetSubject((string)comboBoxTheme.SelectedItem);
+        }
 
         private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            filter.Type = (string)comboBoxType.SelectedItem;
+            /*prog.SetType((string)comboBoxType.SelectedItem);
 
             if (comboBoxType.SelectedIndex == 1)
             {
@@ -176,97 +193,46 @@ namespace Lab2
                 comboBoxTheme.Hide();
                 comboBoxTheme.SelectedItem = null;
                 labelTheme.Hide();
-            }
+            }*/
         }
 
-        private void comboBoxShape_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxShape_SelectedIndexChanged(object sender, EventArgs e) 
         {
-            filter.Shape = (string)comboBoxShape.SelectedItem;
+            //prog.SetShape((string)comboBoxShape.SelectedItem);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            richTextBox1.Text = "";
-            List<Coin> found = new List<Coin>();
-
-            if (radioButtonDOM.Checked)
-            {
-                DOM dom = new DOM();
-                found = dom.FindCoins(filter);
-            }
-            if (radioButtonSAX.Checked)
-            {
-                SAX sax = new SAX();
-                found = sax.FindCoins(filter);
-            }
-            if (radioButtonLINQ.Checked)
-            {
-                LinqToXml linqToXml = new LinqToXml();
-                found = linqToXml.FindCoins(filter);
-            }
-
-            foreach (Coin coin in found)
-            {
-                richTextBox1.Text += coin.ToString() + "\n";
-            }
-        }
-
-        private void comboBoxType_DropDownStyleChanged(object sender, EventArgs e)
-        {
-            filter.Type = (string)comboBoxType.SelectedItem;
-        }
-
-        private void comboBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter.Country = (string)comboBoxCountry.SelectedItem;
-        }
-
-        private void comboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter.Year = (string)comboBoxYear.SelectedItem;
-        }
-
-        private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter.Value = (string)comboBoxValue.SelectedItem;
-        }
-
-        private void comboBoxCurrency_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter.CurrencyUnit = (string)comboBoxCurrency.SelectedItem;
-        }
-
-        private void comboBoxEdge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter.Edge = (string)comboBoxEdge.SelectedItem;
-        }
-
-        private void comboBoxComposition_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter.Composition = (string)comboBoxComposition.SelectedItem;
-        }
-
-        private void comboBoxTheme_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filter.Subject = (string)comboBoxTheme.SelectedItem;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonReset_Click(object sender, EventArgs e)
         {
             resetFilter();
         }
 
         private void buttonToHtml_Click(object sender, EventArgs e)
         {
-            XslCompiledTransform xslCompiled = new XslCompiledTransform();
-            xslCompiled.Load("D:/Shkola/2ndCourse/OOP/DZ/Lab2/Lab2/XSLTFile1.xslt");
+            prog.ToHtml();
+        }
 
-            string inXml = "D:/Shkola/2ndCourse/OOP/DZ/Lab2/Lab2/XmlCollectionCountries.xml";
-            string outHtml = "D:/Shkola/2ndCourse/OOP/DZ/Lab2/Lab2/HTMLCollection.html";
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
-            xslCompiled.Transform(inXml, outHtml);
+        }
 
-            richTextBox1.Text = 
+        private void toolStripButton1_Click(object sender, EventArgs e) 
+        {
+            MessageBox.Show("");
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

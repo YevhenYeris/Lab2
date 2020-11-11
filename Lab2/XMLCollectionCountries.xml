@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Collection>
-  <Country Name ="USA">
+  <Country ID ="USA">
       <Coin Type ="Circulation"
             Year ="1965"
             Value ="25"
@@ -121,7 +121,7 @@
         </Coin>
       
   </Country>
-  <Country Name ="Canada">
+  <Country ID ="Canada">
       <Coin Type ="Circulation"
             Year ="2015"
             Value ="25"
@@ -199,7 +199,7 @@
           <!--100th Anniversary of The Toronto Maple Leafs-->
         </Coin>
   </Country>
-  <Country Name ="Great Britain">
+  <Country ID ="Great Britain">
       <Coin Type ="Circulation"
             Year ="2005"
             Value ="2"
@@ -237,7 +237,7 @@
             Subject ="Queen Elizabeth">
       </Coin>
   </Country>
-  <Country Name ="Islands">
+  <Country ID ="Islands">
     <Coin Type ="Circulation"
           Year ="1999"
           Value ="1"
@@ -248,7 +248,7 @@
           Subject ="Queen Elizabeth">
     </Coin>
   </Country>
-  <Country Name ="Mauritiius">
+  <Country ID ="Mauritiius">
       <Coin Type ="Circulation"
             Year ="1978"
             Value ="10"
@@ -259,7 +259,7 @@
             Subject ="IDK">
       </Coin>
   </Country>
-  <Country Name ="India">
+  <Country ID ="India">
       <Coin Type ="Circulation"
             Year ="1995"
             Value ="5"
@@ -270,7 +270,7 @@
             Subject ="IDK">
       </Coin>
   </Country>
-  <Country Name ="Ceilon">
+  <Country ID ="Ceilon">
       <Coin Type ="Circulation"
             Year ="1978"
             Value ="5"
@@ -281,7 +281,7 @@
             Subject ="IDK">
       </Coin>
   </Country>
-  <Country Name ="Japan">
+  <Country ID ="Japan">
       <Coin Type ="Circulation"
             Year ="1944"
             Value ="10"
@@ -292,7 +292,7 @@
             Subject ="IDK">
       </Coin>
   </Country>
-  <Country Name ="Egypt">
+  <Country ID ="Egypt">
       <Coin Type ="Circulation"
             Year ="2007"
             Value ="1"

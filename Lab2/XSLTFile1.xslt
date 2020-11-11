@@ -23,7 +23,7 @@
                 <xsl:for-each select="//Coin">
                   <tr>
                     <td>
-                      <xsl:value-of select="ancestor::Country[1]/@Name"/>
+                      <xsl:value-of select="ancestor::Country[1]/@ID"/>
                     </td>
                     <td>
                       <xsl:value-of select="@Type"/>

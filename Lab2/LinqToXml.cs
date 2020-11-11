@@ -6,21 +6,21 @@ using System.Linq;
 
 namespace Lab2
 {
-    class LinqToXml : XmlSearchStrategy
+    class LinqToXml : IXmlSearchStrategy
     {
-        public override List<Coin> FindCoins(Coin coin)
+        public List<Coin> FindCoins(Coin coin)
         {
             List<Coin> found = new List<Coin>(); 
 
             var xmlDoc = new XDocument();
-            xmlDoc = XDocument.Load(getFilePath("XmlCollectionCountries.xml"));
+            xmlDoc = XDocument.Load(DataSystemProg.XmlFile);
 
             List<XElement> countries = (from xCountry in xmlDoc.Descendants("Country")
-                                        where (coin.Country == null || xCountry.Attribute("Name").Value == coin.Country)
+                                        where (coin.Country == null || xCountry.Attribute("ID").Value == coin.Country)
                                         select xCountry).ToList();
 
             List<XElement> coins = (from xCoin in xmlDoc.Descendants("Coin")
-                                   where ((coin.Country == null || xCoin.Parent.Attribute("Name").Value == coin.Country)
+                                   where (/*(coin.Country == null || xCoin.Parent.Attribute("ID").Value == coin.Country)
                                    && (coin.Type == null || xCoin.Attribute("Type").Value == coin.Type)
                                    && (coin.Year == null || xCoin.Attribute("Year").Value == coin.Year)
                                    && (coin.Value == null || xCoin.Attribute("Value").Value == coin.Value)
@@ -28,12 +28,15 @@ namespace Lab2
                                    && (coin.Shape == null || xCoin.Attribute("Shape").Value == coin.Shape)
                                    && (coin.Composition == null || xCoin.Attribute("Composition").Value == coin.Composition)
                                    && (coin.Edge == null || xCoin.Attribute("Edge").Value == coin.Edge)
-                                   && (coin.Subject == null || xCoin.Attribute("Subject").Value == coin.Subject))
+                                   && (coin.Subject == null || xCoin.Attribute("Subject").Value == coin.Subject)*/
+                                   coin == new Coin(xCoin, xCoin.Parent.Attribute("ID").Value))
                                    select xCoin).ToList();
 
             foreach (XElement el in coins)
             {
-                found.Add(new Coin(el));
+                string ctr = el.Parent.Attribute("ID").Value;
+                found.Add(new Coin(el, ctr));
+                int a = 0;
             }
 
             /*foreach (XElement val in countries)

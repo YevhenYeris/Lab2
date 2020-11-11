@@ -6,14 +6,14 @@ using System.IO;
 
 namespace Lab2
 {
-    class DOM : XmlSearchStrategy
+    class DOM : IXmlSearchStrategy
     {
-        public override List<Coin> FindCoins(Coin coin)
+        public List<Coin> FindCoins(Coin coin)
         {
             List<Coin> found = new List<Coin>();
 
             var xmlDoc = new XmlDocument();
-            xmlDoc.Load(getFilePath("XMLCollectionCountries.xml"));
+            xmlDoc.Load(DataSystemProg.XmlFile);
 
             string request = makeXPathRequest(coin);
 
@@ -21,7 +21,8 @@ namespace Lab2
 
             foreach (XmlNode node in nodes)
             {
-                found.Add(new Coin(node));
+                string country = node.ParentNode.Attributes.GetNamedItem("ID").Value;
+                found.Add(new Coin(node, country));
             }
 
             return found;
@@ -31,12 +32,20 @@ namespace Lab2
         {
             string request = "";
 
-            if (coin.Country != null)
-                request += "//Country[@Name='" + coin.Country + "']";
+            if (coin.Attributes["Country"] != null)
+                request += "//Country[@ID='" + coin.Attributes["Country"] + "']";
 
             request += "//Coin";
 
-            if (coin.Edge != null)
+            foreach (var val in coin.Attributes)
+            {
+                if (val.Key != "Country" && val.Value != null)
+                {
+                    request += "[@" + val.Key + "='" + val.Value + "']";
+                }
+            }
+
+            /*if (coin.Edge != null)
                 request += "[@Edge='" + coin.Edge + "']";
             if (coin.Year != null)
                 request += "[@Year='" + coin.Year + "']";
@@ -51,7 +60,7 @@ namespace Lab2
             if (coin.Subject != null)
                 request += "[@Subject='" + coin.Subject + "']";
             if (coin.Type != null)
-                request += "[@Type='" + coin.Type + "']";
+                request += "[@Type='" + coin.Type + "']";*/
 
             return request;
         }
