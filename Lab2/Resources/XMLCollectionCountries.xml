@@ -101,7 +101,6 @@
               CurrencyUnit ="Cent"
               Shape ="Round"
               Composition ="Copper+Nickel"
-              Quality ="Good"
               Edge ="Reeded"
               Subject ="USA states">
           <!--South Carolina-->
@@ -113,7 +112,6 @@
               CurrencyUnit ="Dollar"
               Shape ="Round"
               Composition ="Manganese+Brass"
-              Quality ="Good"
               Edge ="Lettered"
               Subject ="USA Presidents">
           <!--James K. Polk-->

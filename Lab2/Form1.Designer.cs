@@ -1,6 +1,6 @@
 ﻿namespace Lab2
 {
-    partial class Form1
+    partial class CoinCollectionForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,15 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.buttonToHtml = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.ColumnCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnCombo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.ColumnText = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,6 +40,8 @@
             this.radioButtonDOM = new System.Windows.Forms.RadioButton();
             this.radioButtonSAX = new System.Windows.Forms.RadioButton();
             this.radioButtonLINQ = new System.Windows.Forms.RadioButton();
+            this.buttonHtml = new System.Windows.Forms.Button();
+            this.buttonINFO = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -53,7 +49,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -80,61 +75,17 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.toolStrip1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.dataGrid, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.dataGrid, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.80952F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.19048F));
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.88889F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.11111F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(500, 450);
             this.tableLayoutPanel2.TabIndex = 0;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripDropDownButton1,
-            this.toolStripButton1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(500, 27);
-            this.toolStrip1.TabIndex = 21;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.buttonToHtml});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 24);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // buttonToHtml
-            // 
-            this.buttonToHtml.Name = "buttonToHtml";
-            this.buttonToHtml.Size = new System.Drawing.Size(141, 26);
-            this.buttonToHtml.Text = "ToHtml";
-            this.buttonToHtml.Click += new System.EventHandler(this.buttonToHtml_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // dataGrid
             // 
@@ -145,44 +96,31 @@
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCheck,
             this.ColumnCombo,
             this.ColumnText});
             this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGrid.Location = new System.Drawing.Point(3, 33);
+            this.dataGrid.Location = new System.Drawing.Point(3, 3);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.RowHeadersWidth = 51;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGrid.Size = new System.Drawing.Size(494, 303);
+            this.dataGrid.Size = new System.Drawing.Size(494, 295);
             this.dataGrid.TabIndex = 22;
             this.dataGrid.Text = "dataGridView1";
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellValueChanged);
-            // 
-            // ColumnCheck
-            // 
-            this.ColumnCheck.FillWeight = 56.14973F;
-            this.ColumnCheck.HeaderText = "Check";
-            this.ColumnCheck.MinimumWidth = 6;
-            this.ColumnCheck.Name = "ColumnCheck";
-            this.ColumnCheck.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // ColumnCombo
             // 
-            this.ColumnCombo.FillWeight = 121.9251F;
-            this.ColumnCombo.HeaderText = "Combo";
+            this.ColumnCombo.HeaderText = "Parameters";
             this.ColumnCombo.MinimumWidth = 6;
             this.ColumnCombo.Name = "ColumnCombo";
             this.ColumnCombo.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnCombo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // ColumnText
             // 
-            this.ColumnText.FillWeight = 121.9251F;
-            this.ColumnText.HeaderText = "Text";
+            this.ColumnText.HeaderText = "Names";
             this.ColumnText.MinimumWidth = 6;
             this.ColumnText.Name = "ColumnText";
             this.ColumnText.ReadOnly = true;
-            this.ColumnText.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // tableLayoutPanel1
             // 
@@ -196,20 +134,23 @@
             this.tableLayoutPanel1.Controls.Add(this.radioButtonDOM, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonSAX, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.radioButtonLINQ, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.buttonHtml, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonINFO, 3, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 342);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 304);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(494, 105);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(494, 143);
             this.tableLayoutPanel1.TabIndex = 23;
             // 
             // buttonSearch
             // 
+            this.buttonSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSearch.Location = new System.Drawing.Point(3, 3);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(94, 29);
+            this.buttonSearch.Size = new System.Drawing.Size(137, 65);
             this.buttonSearch.TabIndex = 0;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -217,9 +158,10 @@
             // 
             // buttonReset
             // 
-            this.buttonReset.Location = new System.Drawing.Point(3, 55);
+            this.buttonReset.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonReset.Location = new System.Drawing.Point(3, 74);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(94, 29);
+            this.buttonReset.Size = new System.Drawing.Size(137, 66);
             this.buttonReset.TabIndex = 1;
             this.buttonReset.Text = "Reset";
             this.buttonReset.UseVisualStyleBackColor = true;
@@ -258,6 +200,28 @@
             this.radioButtonLINQ.Text = "LINQ";
             this.radioButtonLINQ.UseVisualStyleBackColor = true;
             // 
+            // buttonHtml
+            // 
+            this.buttonHtml.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonHtml.Location = new System.Drawing.Point(263, 74);
+            this.buttonHtml.Name = "buttonHtml";
+            this.buttonHtml.Size = new System.Drawing.Size(119, 66);
+            this.buttonHtml.TabIndex = 5;
+            this.buttonHtml.Text = "To HTML";
+            this.buttonHtml.UseVisualStyleBackColor = true;
+            this.buttonHtml.Click += new System.EventHandler(this.buttonHtml_Click);
+            // 
+            // buttonINFO
+            // 
+            this.buttonINFO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonINFO.Location = new System.Drawing.Point(388, 74);
+            this.buttonINFO.Name = "buttonINFO";
+            this.buttonINFO.Size = new System.Drawing.Size(103, 66);
+            this.buttonINFO.TabIndex = 6;
+            this.buttonINFO.Text = "INFO";
+            this.buttonINFO.UseVisualStyleBackColor = true;
+            this.buttonINFO.Click += new System.EventHandler(this.buttonINFO_Click);
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -273,23 +237,19 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // Form1
+            // CoinCollectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "CoinCollectionForm";
+            this.Text = "CoinCollection";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -303,19 +263,16 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripMenuItem buttonToHtml;
         private System.Windows.Forms.DataGridView dataGrid;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnCheck;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnCombo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnText;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.RadioButton radioButtonDOM;
         private System.Windows.Forms.RadioButton radioButtonSAX;
         private System.Windows.Forms.RadioButton radioButtonLINQ;
+        private System.Windows.Forms.Button buttonHtml;
+        private System.Windows.Forms.Button buttonINFO;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColumnCombo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnText;
     }
 }

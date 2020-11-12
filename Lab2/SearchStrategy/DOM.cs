@@ -6,6 +6,10 @@ using System.IO;
 
 namespace Lab2
 {
+    /*
+    *Пошук за допомогою стратегії DOM
+    */
+
     class DOM : IXmlSearchStrategy
     {
         public List<Coin> FindCoins(Coin coin)
@@ -28,6 +32,7 @@ namespace Lab2
             return found;
         }
 
+        // Створення запиту на мові XPath
         private string makeXPathRequest(Coin coin)
         {
             string request = "";
@@ -44,24 +49,6 @@ namespace Lab2
                     request += "[@" + val.Key + "='" + val.Value + "']";
                 }
             }
-
-            /*if (coin.Edge != null)
-                request += "[@Edge='" + coin.Edge + "']";
-            if (coin.Year != null)
-                request += "[@Year='" + coin.Year + "']";
-            if (coin.Value != null)
-                request += "[@Value='" + coin.Value + "']";
-            if (coin.CurrencyUnit != null)
-                request += "[@CurrencyUnit='" + coin.CurrencyUnit + "']";
-            if (coin.Shape != null)
-                request += "[@Shape='" + coin.Shape + "']";
-            if (coin.Composition != null)
-                request += "[@Composition='" + coin.Composition + "']";
-            if (coin.Subject != null)
-                request += "[@Subject='" + coin.Subject + "']";
-            if (coin.Type != null)
-                request += "[@Type='" + coin.Type + "']";*/
-
             return request;
         }
     }

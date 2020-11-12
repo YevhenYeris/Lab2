@@ -12,91 +12,72 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Reflection.Metadata.Ecma335;
 
-/*TODOs
- *
- * Оновлювати ComboBoxes
- * 
- * Додати атрибут-зображення
- * 
- * Рефакторити код
- * 
- * Додати інформацію
- * 
- * Додати MessageBoxes
- * 
- */
-
 namespace Lab2
 {
-    public partial class Form1 : Form
+    public partial class CoinCollectionForm : Form
     {
         DataSystemProg prog = new DataSystemProg();
 
-        List<ComboBox> comboBoxes = new List<ComboBox>();
-
-        public Form1()
+        public CoinCollectionForm()
         {
             InitializeComponent();
-            /*comboBoxes = new List<ComboBox>(new ComboBox[] { comboBoxCountry, comboBoxType, comboBoxComposition,
-            comboBoxCurrency, comboBoxTheme, comboBoxValue, comboBoxEdge, comboBoxShape, comboBoxYear});*/
 
             setFilter();
         }
 
-        // Set items in ComboBoxes
+        #region Пошук і виведення
+
+        // Установлення рядків у таблиці параметрів пошуку
         private void setFilter()
         {
-            dataGrid.Rows.AddRange(prog.makeRows());
+            FilterSetter setter = new FilterSetter();
+
+            dataGrid.Rows.AddRange(setter.makeRows());
         }
 
-        // Add item to ComboBox
-        private void addItem(XmlNode coin)
-        {
-            /*if (coin.Attributes.GetNamedItem("CurrencyUnit") != null && !comboBoxCurrency.Items.Contains(coin.Attributes.GetNamedItem("CurrencyUnit").Value))
-                comboBoxCurrency.Items.Add(coin.Attributes.GetNamedItem("CurrencyUnit").Value);
-
-            if (coin.Attributes.GetNamedItem("Type") != null && !comboBoxType.Items.Contains(coin.Attributes.GetNamedItem("Type").Value))
-                comboBoxType.Items.Add(coin.Attributes.GetNamedItem("Type").Value);
-
-            if (coin.Attributes.GetNamedItem("Year") != null && !comboBoxYear.Items.Contains(coin.Attributes.GetNamedItem("Year").Value))
-                comboBoxYear.Items.Add(coin.Attributes.GetNamedItem("Year").Value);
-
-            if (coin.Attributes.GetNamedItem("Value") != null && !comboBoxValue.Items.Contains(coin.Attributes.GetNamedItem("Value").Value))
-                comboBoxValue.Items.Add(coin.Attributes.GetNamedItem("Value").Value);
-
-            if (coin.Attributes.GetNamedItem("Shape") != null && !comboBoxShape.Items.Contains(coin.Attributes.GetNamedItem("Shape").Value))
-                comboBoxShape.Items.Add(coin.Attributes.GetNamedItem("Shape").Value);
-
-            if (coin.Attributes.GetNamedItem("Composition") != null && !comboBoxComposition.Items.Contains(coin.Attributes.GetNamedItem("Composition").Value))
-                comboBoxComposition.Items.Add(coin.Attributes.GetNamedItem("Composition").Value);
-
-            if (coin.Attributes.GetNamedItem("Edge") != null && !comboBoxEdge.Items.Contains(coin.Attributes.GetNamedItem("Edge").Value))
-                comboBoxEdge.Items.Add(coin.Attributes.GetNamedItem("Edge").Value);
-
-            if (coin.Attributes.GetNamedItem("Subject") != null && !comboBoxTheme.Items.Contains(coin.Attributes.GetNamedItem("Subject").Value))
-                comboBoxTheme.Items.Add(coin.Attributes.GetNamedItem("Subject").Value);*/
-        }
-
-        // Set ComboBoxes default TODO 
+        // Скидання фільтрів 
         private void resetFilter()
         {
             richTextBox1.Text = "";
-            for (int i = 0; i < comboBoxes.Count; ++i)
-            {
-                comboBoxes[i].SelectedItem = null;
-                comboBoxes[i].Text = "Усі";
-            }
 
             foreach (DataGridViewRow row in dataGrid.Rows)
             {
-                DataGridViewCheckBoxCell cell = row.Cells[0] as DataGridViewCheckBoxCell;
-                cell.Value = false;
-
-                DataGridViewComboBoxCell cellCombo = row.Cells[1] as DataGridViewComboBoxCell;
-                cellCombo.Value = "";
+                DataGridViewComboBoxCell cellCombo = row.Cells[0] as DataGridViewComboBoxCell;
+                cellCombo.Value = null;
             }
         }
 
+        // Установлення фільтру згідно до обраних параметрів
+        private void setFilterCoin()
+        {
+            Coin coin = new Coin();
+
+            foreach (DataGridViewRow row in dataGrid.Rows)
+            {
+                DataGridViewComboBoxCell cell = row.Cells[0] as DataGridViewComboBoxCell;
+
+                if (cell.Value != null)
+                    coin.Attributes[row.Cells[1].Value.ToString()] = cell.Value.ToString();
+            }
+            prog.Filter = coin;
+        }
+
+        // Виведення тексту в RichTextBox
+        private void setRichTextBox(IEnumerable list)
+        {
+            richTextBox1.Clear();
+
+            foreach (var coin in list)
+            {
+                richTextBox1.Text += coin.ToString() + "\n";
+            }
+        }
+
+        #endregion
+
+        #region Обробка кліків
+
+        // Пошук даних
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             List<Coin> found = new List<Coin>();
@@ -119,120 +100,64 @@ namespace Lab2
             setRichTextBox(found);
         }
 
-        private void setFilterCoin()
-        {
-            Coin coin = new Coin();
-
-            foreach (DataGridViewRow row in dataGrid.Rows)
-            {
-                DataGridViewComboBoxCell cell = row.Cells[1] as DataGridViewComboBoxCell;
-                DataGridViewCheckBoxCell cellCheck = row.Cells[0] as DataGridViewCheckBoxCell;
-
-                if (Convert.ToBoolean(cellCheck.Value) && cell.Value != null)
-                    coin.Attributes[row.Cells[2].Value.ToString()] = cell.Value.ToString();
-            }
-            prog.Filter = coin;
-        }
-
-        private void setRichTextBox(IEnumerable list)
-        {
-            richTextBox1.Clear();
-
-            foreach (var coin in list)
-            {
-                richTextBox1.Text += coin.ToString() + "\n";
-            }
-        }
-
-        private void comboBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prog.SetCountry((string)comboBoxCountry.SelectedItem);
-        }
-
-        private void comboBoxYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prog.SetYear((string)comboBoxYear.SelectedItem);
-        }
-
-        private void comboBoxValue_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prog.SetValue((string)comboBoxValue.SelectedItem);
-        }
-
-        private void comboBoxCurrency_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prog.SetCurrencyUnit((string)comboBoxCurrency.SelectedItem);
-        }
-
-        private void comboBoxEdge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prog.SetEdge((string)comboBoxEdge.SelectedItem);
-        }
-
-        private void comboBoxComposition_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //prog.SetComposition((string)comboBoxComposition.SelectedItem);
-        }
-
-        private void comboBoxTheme_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           // prog.SetSubject((string)comboBoxTheme.SelectedItem);
-        }
-
-        private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*prog.SetType((string)comboBoxType.SelectedItem);
-
-            if (comboBoxType.SelectedIndex == 1)
-            {
-                comboBoxTheme.Show();
-                labelTheme.Show();
-            }
-            else
-            {
-                comboBoxTheme.Hide();
-                comboBoxTheme.SelectedItem = null;
-                labelTheme.Hide();
-            }*/
-        }
-
-        private void comboBoxShape_SelectedIndexChanged(object sender, EventArgs e) 
-        {
-            //prog.SetShape((string)comboBoxShape.SelectedItem);
-        }
-
+        // Скидання фільтрів
         private void buttonReset_Click(object sender, EventArgs e)
         {
             resetFilter();
         }
 
-        private void buttonToHtml_Click(object sender, EventArgs e)
+        // Трансформація в html
+        private void buttonHtml_Click(object sender, EventArgs e)
         {
             prog.ToHtml();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        // Виведення інформації
+        private void buttonINFO_Click(object sender, EventArgs e)
         {
+            StringBuilder info = new StringBuilder();
 
+            info.AppendLine("Виконав Єріс Євген, група К-25\n");
+            info.AppendLine("Інформаційна система: колекція монет\n");
+            info.AppendLine("Структура системи: -Колекція");
+            info.AppendLine("--Країна");
+            info.AppendLine("---Монета");
+            info.AppendLine("----Тип");
+            info.AppendLine("----Рік");
+            info.AppendLine("----Номінал");
+            info.AppendLine("----Валютна одиниця");
+            info.AppendLine("----Форма");
+            info.AppendLine("----Сплав");
+            info.AppendLine("----Гурт");
+            info.AppendLine("----Тема\n");
+            info.AppendLine("У Html-файл записуються результати пошуку\n");
+            info.AppendLine("Пошук реалізовано трьома способами:\nDOM, SAX, Linq to Html");
+
+            MessageBox.Show(info.ToString(), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e) 
+        #endregion
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            MessageBox.Show("");
+            if (AskExit() == false)
+            {
+                e.Cancel = true;
+            };
         }
 
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        public static bool AskExit()
         {
+            const string message = "Ви дійсно бажаєте закрити програму?";
+            const string caption = "Закрити програму";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
+            if (result == DialogResult.Yes)
+                return true;
+            else
+                return false;
         }
     }
 }
